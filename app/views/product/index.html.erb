@@ -1,0 +1,28 @@
+
+<% @products.each do |product| %>
+  <div class="container alert alert-light">
+    <div class="list group-item">
+      <div>
+
+        <div>
+          <strong>Title:</strong>
+        </div>
+        <div><%= product.title %></div>
+
+        <div>
+          <strong>Category:</strong>
+        </div>
+        <div>
+          <%= Category.find(product.category_id).title %>
+        </div>
+        <div>
+          <%= link_to 'Show', product, class:"btn btn-outline-success" %>
+          <%= link_to 'Buy', product, class:"btn btn-outline-success" %>
+        </div>
+      </div>
+    </div>
+  </div>
+    <br>
+<% end %>
+
+<!-- -->
