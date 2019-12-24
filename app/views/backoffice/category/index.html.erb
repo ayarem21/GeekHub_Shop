@@ -16,10 +16,14 @@
         <strong>Title:</strong>
       </div>
       <div><%= category.title %></div>
+      <%= image_tag category.image.url(:thumb) if category.image?%>
+
+        <div><%= link_to 'Show', admin_category_path(category), class:"btn btn-outline-success" %>
           <%= link_to 'Edit', edit_admin_category_path(category), class:"btn btn-outline-warning"%>
           <%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger"%>
         </div>
       </div>
+    </div>
 <% end %>
 
 <br>

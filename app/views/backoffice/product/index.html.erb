@@ -26,6 +26,9 @@
       <div><%= product.price %></div>
       <div>
         <%= Category.find(product.category_id).title %>
+
+        <%= image_tag product.image.url(:thumb) if product.image?%>
+
         <div><%= link_to 'Show', product, class:"btn btn-outline-success" %>
             <%= link_to 'Edit', edit_admin_product_path(product), class:"btn btn-outline-warning"%>
             <%= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger"%>
