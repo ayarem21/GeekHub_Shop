@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<div><%= link_to 'New post', new_admin_category_path, class: "btn btn-primary"%></div>
+<% @categories.each do |category| %>
+  <div class="container alert alert-light">
+    <div class="list group-item">
+      <div>
+        <i class="fas fa-address-book"></i>
+        <strong>Description:</strong>
+      </div>
+
+      <div><%= category.description %> </div>
+
+      <div>
+        <i class="fab fa-accusoft"></i>
+        <strong>Title:</strong>
+      </div>
+      <div><%= category.title %></div>
+          <%= link_to 'Edit', edit_admin_category_path(category), class:"btn btn-outline-warning"%>
+          <%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger"%>
+        </div>
+      </div>
+<% end %>
+
+<br>

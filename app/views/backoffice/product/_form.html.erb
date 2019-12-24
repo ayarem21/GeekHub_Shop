@@ -1,0 +1,33 @@
+<%= form_with(model: [ :admin, @product ], local: true) do |form| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% @product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :'Title:' %>
+    <%= form.text_field :title, class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :'Description:' %>
+    <%= form.text_area :description, class:"form-control" %>
+  </div>
+
+
+  <div>
+    <%= form.label :'Price:' %>
+    <%= form.text_field :price %>
+  </div>
+  <%= form.select :category_id, Category.all.pluck(:title,:id),{class: "form-control"}%>
+  <br>
+  <%= form.submit :Submit, class:"btn btn-dark"%>
+  <br>
+<% end %>

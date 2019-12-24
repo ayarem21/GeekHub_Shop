@@ -1,0 +1,16 @@
+<div class="container alert alert-light">
+
+  <h1 class="mt-4"><%= @product.title %></h1>
+  <div>
+    <%= Category.find(@product.category_id).title %>
+  </div>
+  <hr>
+
+  <p>
+    <%= @product.description %>
+  </p>
+
+
+  <%= link_to 'Back', admin_product_path, class:"btn btn-secondary"%>
+</div>
+
