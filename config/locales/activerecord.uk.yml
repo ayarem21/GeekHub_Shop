@@ -1,0 +1,14 @@
+uk:
+  activerecord:
+    attributes:
+      product:
+        title: "Назва"
+        description: "Опис"
+        price: "Ціна"
+      category:
+        title: "Назва"
+        description: "Опис"
+      user:
+        email: "Електронна адреса"
+        password: "Пароль"
+        registration: "Реєстрація"

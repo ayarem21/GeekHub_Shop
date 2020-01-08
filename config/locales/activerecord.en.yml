@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    attributes:
+      product:
+        title: "Title"
+        description: "Description"
+        price: "Price"
+      category:
+        title: "Title"
+        description: "Description"
+      user:
+        email: "Email"
+        password: "Password"
+        registration: "Registration"

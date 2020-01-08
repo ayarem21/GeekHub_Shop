@@ -1,0 +1,26 @@
+uk:
+  products:
+       new:
+         title: 'Додати новий товар'
+       index:
+         title: 'Назва'
+         description: 'Опис'
+         category: 'Категорія'
+         price: "Ціна"
+         show: "Переглянути товар"
+         buy: "Купити"
+         admin: "Адмінка"
+         login: "Увійти в систему"
+         logout: "Вихід"
+         create: "Створити обліковий запис"
+         back: "Повернутися назад"
+         registration: "Реєстрація"
+         reg_ok: "Зареєструватись"
+
+
+  category:
+       new:
+         title: 'Додати нову категорію'
+
+
+

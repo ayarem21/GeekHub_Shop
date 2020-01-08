@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :'Title:' %>
+    <%= form.label :title %>
     <%= form.text_field :title, class:"form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :'Description:' %>
+    <%= form.label :description %>
     <%= form.text_area :description, class:"form-control" %>
   </div>
 
@@ -25,6 +25,6 @@
     <%= form.file_field :image %>
   </div>
 
-  <%= form.submit :Submit, class:"btn btn-dark"%>
+  <%= form.submit :submit, class:"btn btn-dark"%>
   <br>
 <% end %>

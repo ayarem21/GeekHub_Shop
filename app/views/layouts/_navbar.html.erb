@@ -9,18 +9,19 @@
         <a class="nav-link" href="#" style="color:white"><span class="fas fa-user"></span><%= current_user.email %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"><%= link_to 'Log Out', log_out_path, method: :delete %></a>
+        <a class="nav-link"><%= link_to "#{ t('products.index.logout')}", log_out_path, method: :delete %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/admin/product" style="color:white"><span class="fas fa-sign-in-alt"></span>Admin</a>
+        <a class="nav-link"><span class="fas fa-sign-in-alt"></span><%= link_to "#{ t('products.index.admin')}", admin_products_path %></a>
       </li>
     <% else %>
       <li class="nav-item">
-        <a class="nav-link" href="/sign_up" style="color:white"><span class="fas fa-user"></span>Create account</a>
+        <a class="nav-link" style="color:white"><span class="fas fa-user"></span><%= link_to "#{ t('products.index.create')}", sign_up_path %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/log_in" style="color:white"><span class="fas fa-sign-in-alt"></span>Log in</a>
+        <a class="nav-link"><span class="fas fa-sign-in-alt"></span><%= link_to "#{ t('products.index.login')}", log_in_path %></a>
       </li>
+
     <% end %>
   </ul>
 </nav>

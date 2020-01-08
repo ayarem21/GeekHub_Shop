@@ -1,8 +1,6 @@
-<h1>Registration</h1>
+<h1><%= t('products.index.registration') %></h1>
 
 <%= form_for @user do |f| %>
-
-
   <div class="form-group">
     <%= f.label :email %>
     <%= f.email_field :email, class: 'form-control', required: true %>

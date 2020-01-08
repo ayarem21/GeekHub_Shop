@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :'Title:' %>
+    <%= form.label :title %>
     <%= form.text_field :title, class:"form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :'Description:' %>
+    <%= form.label :description %>
     <%= form.rich_text_area :description, class:"form-control" %>
   </div>
 
 
   <div>
-    <%= form.label :'Price:' %>
+    <%= form.label :price %>
     <%= form.text_field :price %>
   </div>
   <%= form.select :category_id, Category.all.pluck(:title,:id),{class: "form-control"}%>

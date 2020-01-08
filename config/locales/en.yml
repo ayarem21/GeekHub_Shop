@@ -30,4 +30,26 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  products:
+    new:
+      title: 'Add new product'
+    edit:
+      title: 'Edit product'
+    index:
+      title: 'Title'
+      description: 'Description'
+      category: 'Category'
+      price: "Price"
+      show: "Show"
+      buy: "Buy"
+      admin: "Admin"
+      login: "Login"
+      logout: "Logout"
+      create: "Create user"
+      back: "Back"
+      registration: "Registration"
+  category:
+    new:
+      title: 'Add new category'
+    edit:
+      title: 'Edit category'

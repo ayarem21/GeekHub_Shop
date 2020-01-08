@@ -28,6 +28,7 @@ gem 'carrierwave', '~> 2.0'
 gem "mini_magick"
 gem "image_processing", "~> 1.2"
 gem 'sorcery'
+gem 'i18n'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
