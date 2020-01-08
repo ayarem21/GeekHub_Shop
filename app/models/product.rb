@@ -3,5 +3,5 @@ class Product < ApplicationRecord
 
   validates :title, uniqueness: true
 
-  mount_uploader :image, ImageUploader
+  mount_uploaders :images, ImageUploader
 end
