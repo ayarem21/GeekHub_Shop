@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <i class="fab fa-accessible-icon" style="color:white"></i> <%= link_to "Cinema", product_index_path, class: "navbar-brand "%>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <ul class="nav navbar-nav ml-auto">
+    <% if current_user %>
+      <li class="nav-item">
+        <a class="nav-link" href="#" style="color:white"><span class="fas fa-user"></span><%= current_user.email %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"><%= link_to 'Log Out', log_out_path, method: :delete %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/product" style="color:white"><span class="fas fa-sign-in-alt"></span>Admin</a>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <a class="nav-link" href="/sign_up" style="color:white"><span class="fas fa-user"></span>Create account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/log_in" style="color:white"><span class="fas fa-sign-in-alt"></span>Log in</a>
+      </li>
+    <% end %>
+  </ul>
+</nav>

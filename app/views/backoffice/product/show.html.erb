@@ -1,5 +1,4 @@
 <div class="container alert alert-light">
-
   <h1 class="mt-4"><%= @product.title %></h1>
   <div>
     <%= Category.find(@product.category_id).title %>
@@ -13,13 +12,13 @@
   <div class = "container">
     <% @product.images.each_with_index do |image, index| %>
       <%= image_tag image.url(:large) %>
-      <%= link_to "Delete", admin_product_image_path(@product, index), method: :delete, data: { confirm: "Are you sure you want to delete this image?" } %>
+      <%= link_to "Delete", product_image_path(@product, index), method: :delete, data: { confirm: "Are you sure you want to delete this image?" } %>
     <% end %>
   </div>
 
   <div class = "container">
     <h3>Add new images</h3>
-    <% form_for @product, url: admin_product_images_path(@product), method: :post do |f| %>
+    <% form_for @product, url: product_images_path(@product), method: :post do |f| %>
       <%= f.file_field :images, multiple: true %>
       <%= f.submit "Add More Images" %>
     <% end %>

@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   get 'product/index'
   get 'product/show'
 
-  resources :product
+  resources :product do
+    resources :images, controller: 'backoffice/images'
+  end
 
   scope :admin do
     resources :category, controller: 'backoffice/category', as: 'admin_categories'
-    resources :product, controller: 'backoffice/product', as: 'admin_products' do
-      resources :images, only: %i[create destroy]
-    end
+    resources :product, controller: 'backoffice/product', as: 'admin_products'
   end
 
 

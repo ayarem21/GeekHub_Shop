@@ -1,9 +1,18 @@
+<style>
+  .first_child {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+  }
+</style>
 
 <% @products.each do |product| %>
-  <div class="container alert alert-light">
+  <div class="container alert alert-dark">
     <div class="list group-item">
       <div>
 
+        <% if product.images? %>
+          <%= image_tag product.images.first.url(:thumb) %>
+        <% end %>
         <div>
           <strong>Title:</strong>
         </div>
@@ -23,10 +32,11 @@
       </div>
     </div>
   </div>
-    <br>
 <% end %>
 
 <!-- -->
-<div class="container">
+
+<div class="second_child">
+
   <%= will_paginate @products %>
 </div>

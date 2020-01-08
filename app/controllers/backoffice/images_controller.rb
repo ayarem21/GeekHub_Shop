@@ -10,7 +10,7 @@ class Backoffice::ImagesController < BackOfficeController
   def destroy
     remove_image_at_index(params[:id].to_i)
     flash[:error] = "Failed deleting image" unless @product.save
-    redirect_to :back
+    redirect_to "/admin/product"
   end
 
   private

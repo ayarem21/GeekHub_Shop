@@ -1,42 +1,29 @@
 <p id="notice"><%= notice %></p>
-<div><%= link_to 'New post', new_admin_product_path, class: "btn btn-primary"%></div>
+<div></div>
 
+<div class="containerr container">
+  <%= render '/backoffice/admin/admin' %>
 
-
-<% @products.each do |product| %>
-  <div class="container alert alert-light">
-    <div class="list group-item">
-      <div>
-        <i class="fas fa-address-book"></i>
-        <strong>Description:</strong>
-      </div>
-
-      <div><%= product.description %> </div>
-
-      <div>
-        <i class="fab fa-accusoft"></i>
-        <strong>Title:</strong>
-      </div>
-      <div><%= product.title %></div>
-
-      <div>
-        <i class="fab fa-adversal"></i>
-        <strong>Price:</strong>
-      </div>
-      <div><%= product.price %></div>
-      <div>
-        <%= Category.find(product.category_id).title %>
-
-        <%= image_tag product.image.url(:thumb) if product.image?%>
-
-        <div><%= link_to 'Show', admin_product_path(product), class:"btn btn-outline-success" %>
-            <%= link_to 'Edit', edit_admin_product_path(product), class:"btn btn-outline-warning"%>
-            <%= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger"%>
-        </div>
-      </div>
-    </div>
+  <div class="second_child">
+    <table class="table">
+      <tr>
+        <td><strong>Title:</strong></td>
+        <td><strong>Description:</strong></td>
+        <td><strong>Price:</strong></td>
+        <td><strong>Category:</strong></td>
+        <td><%= link_to 'New poduct', new_admin_product_path, class: "btn btn-primary"%></td>
+      </tr>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.title %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td><%= Category.find(product.category_id).title %></td>
+        <td><%= link_to 'Show', admin_product_path(product), class:"btn btn-outline-success" %>
+          <%= link_to 'Edit', edit_admin_product_path(product), class:"btn btn-outline-warning"%>
+          <%= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger"%></td>
+      </tr>
+    <% end %>
+    </table>
   </div>
-<% end %>
-
-
-<br>
+</div>
