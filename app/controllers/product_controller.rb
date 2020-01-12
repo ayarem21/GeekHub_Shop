@@ -6,6 +6,21 @@ class ProductController < ApplicationController
 
   def show; end
 
+  def min_price
+    @products = Product.order_by_price_min.paginate(page: params[:page], per_page: 8)
+    render action: :index
+  end
+
+  def max_price
+    @products = Product.order_by_price_max.paginate(page: params[:page], per_page: 8)
+    render action: :index
+  end
+
+  def new_sort
+    @products = Product.order_by_new.paginate(page: params[:page], per_page: 8)
+    render action: :index
+  end
+
   private
 
   def set_product

@@ -4,39 +4,42 @@
     grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
   }
 </style>
-
-<% @products.each do |product| %>
-  <div class="container alert alert-dark">
-    <div class="list group-item">
-      <div>
-
-        <% if product.images? %>
-          <%= image_tag product.images.first.url(:thumb) %>
-        <% end %>
+<%= link_to "Min Price", min_price_product_index_path %>
+<%= link_to "Max Price", max_price_product_index_path %>
+<%= link_to "New", new_sort_product_index_path %>
+<div class="first_child">
+  <% @products.each do |product| %>
+    <div class="container alert alert-dark">
+      <div class="list group-item">
         <div>
-          <strong><%= t('products.index.title') %></strong>
-        </div>
-        <div><%= product.title %></div>
-
-        <div>
-          <strong><%= t('products.index.category') %></strong>
-        </div>
-        <div>
-          <%= Category.find(product.category_id).title %>
-        </div>
-        <%= image_tag product.image.url(:thumb) if product.image?%>
-        <div>
-          <p><%= link_to "#{ t('products.index.show')}", product, class:"btn btn-outline-success" %> </p>
-          <%= link_to "#{ t('products.index.buy')}", product, class:"btn btn-outline-success" %>
+          <% if product.images? %>
+            <%= image_tag product.images.first.url(:thumb) %>
+          <% end %>
+          <div>
+            <strong><%= t('products.index.title') %></strong>
+          </div>
+          <div><%= product.title %></div>
+          <div><%= product.price %></div>
+          <div>
+            <strong><%= t('products.index.category') %></strong>
+          </div>
+          <div>
+            <%= Category.find(product.category_id).title %>
+          </div>
+          <%= image_tag product.image.url(:thumb) if product.image?%>
+          <div>
+            <p><%= link_to "#{ t('products.index.show')}", product, class:"btn btn-outline-success" %> </p>
+            <%= link_to "#{ t('products.index.buy')}", product, class:"btn btn-outline-success" %>
+          </div>
         </div>
       </div>
     </div>
+  <% end %>
+
+  <!-- -->
+
+  <div class="second_child">
+
+    <%= will_paginate @products %>
   </div>
-<% end %>
-
-<!-- -->
-
-<div class="second_child">
-
-  <%= will_paginate @products %>
 </div>

@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     get 'product/show'
 
     resources :product do
+      collection do
+        get :min_price
+        get :max_price
+        get :new_sort
+      end
       resources :images, controller: 'backoffice/images'
     end
 

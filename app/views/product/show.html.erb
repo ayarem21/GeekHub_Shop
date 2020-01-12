@@ -11,7 +11,8 @@
 
   <%= image_tag @product.image.url(:large) if @product.image?%>
   <% @product.images.each do |image| %>
-    <%= image_tag image.url(:large) %>
+
+    <a href="<%= image.url(:large) %>" data-lightbox = "some_class">    <%= image_tag image.url(:large) %></a>
   <% end %>
 
   <%= link_to "#{ t('products.index.back')}", product_index_path, class:"btn btn-secondary"%>

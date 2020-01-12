@@ -1,9 +1,14 @@
 class Product < ApplicationRecord
-  belongs_to :category
+  has_many :category_products
+  has_many :categories, through: :category_products
 
   has_rich_text :description
 
   validates :title, uniqueness: true
 
   mount_uploaders :images, ImageUploader
+
+  scope :order_by_price_min, -> { order price: :asc }
+  scope :order_by_price_max, -> { order price: :desc }
+  scope :order_by_new, -> { order created_at: :desc }
 end
