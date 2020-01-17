@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
-    root 'product#index', as: :authenticated_root
+  get 'orders/index'
+  get 'orders/show'
+  get 'orders/new'
+  scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
+    root 'product#index'
 
     get 'product/index'
     get 'product/show'
+
+    get 'carts/:id' => 'carts#show', as: 'cart'
+    delete 'carts/:id' => 'carts#destroy'
+
+    post 'cart_items/:id/add' => 'cart_items#add_quantity', as: 'cart_item_add'
+    post 'cart_items/:id/reduce' => 'cart_items#reduce_quantity', as: 'cart_item_reduce'
+    post 'cart_items' => 'cart_items#create'
+    get 'cart_items/:id' => 'cart_items#show', as: 'cart_item'
+    delete 'cart_items/:id' => 'cart_items#destroy'
+
+    resources :orders
 
     resources :product do
       collection do
