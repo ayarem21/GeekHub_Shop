@@ -4,9 +4,16 @@
     grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
   }
 </style>
-<%= link_to "Min Price", min_price_product_index_path %>
-<%= link_to "Max Price", max_price_product_index_path %>
-<%= link_to "New", new_sort_product_index_path %>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort by
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <%= link_to "Min Price", min_price_product_index_path, class:"dropdown-item"%>
+    <%= link_to "Max Price", max_price_product_index_path, class:"dropdown-item"%>
+    <%= link_to "Newest", new_sort_product_index_path, class:"dropdown-item"%>
+  </div>
+</div>
 <div class="first_child">
   <% @products.each do |product| %>
     <div class="container alert alert-dark">
