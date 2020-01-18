@@ -1,3 +1,4 @@
+
 <div class="container alert alert-light">
   <h1 class="mt-4"><%= @product.title %></h1>
   <div>
@@ -8,16 +9,16 @@
   <p>
     <%= @product.description %>
   </p>
-
-  <%= image_tag @product.image.url(:large) if @product.image?%>
-  <% @product.images.each do |image| %>
-    <%= link_to image_path(image.url(:large)), data: { lightbox: "image"} do
-       image_tag image.url(:large), class: "ligthbox"
-       end
-    %>
-<!--    <a href="<%#= image.url(:large) %>" data-lightbox = "some_class">    <%#= image_tag image.url(:large) %></a>-->
+  <% if @product.images? %>
+    <%= image_tag @product.images.first.url(:large) %>
   <% end %>
-
+  <br>
+  <br>
+  <% @product.images.each do |image| %>
+        <%= image_tag image.url(:medium)%>
+  <% end %>
+  <br>
+  <br>
   <%= link_to "#{ t('products.index.back')}", product_index_path, class:"btn btn-secondary"%>
 </div>
 

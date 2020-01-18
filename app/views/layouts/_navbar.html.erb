@@ -12,7 +12,9 @@
         <a class="nav-link"><%= link_to "#{ t('products.index.logout')}", log_out_path, method: :delete %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"><span class="fas fa-sign-in-alt"></span><%= link_to "#{ t('products.index.admin')}", admin_products_path %></a>
+        <% if current_user.admin? %>
+          <a class="nav-link"><span class="fas fa-sign-in-alt"></span><%= link_to "#{ t('products.index.admin')}", admin_products_path %></a>
+        <% end %>
       </li>
     <% else %>
       <li class="nav-item">
@@ -22,6 +24,7 @@
         <a class="nav-link"><span class="fas fa-sign-in-alt"></span><%= link_to "#{ t('products.index.login')}", log_in_path %></a>
       </li>
 
+      <a> <%= link_to "#{t('products.index.cart')}", cart_path(@current_cart) %></a>
     <% end %>
   </ul>
 </nav>

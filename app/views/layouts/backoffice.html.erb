@@ -10,6 +10,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= render '/backoffice/admin/admin' %>
+      <%= yield %>
+    </div>
   </body>
 </html>

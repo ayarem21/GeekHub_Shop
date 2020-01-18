@@ -1,7 +1,7 @@
 <style>
   .first_child {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
   }
 </style>
 <div class="dropdown">
@@ -20,7 +20,7 @@
       <div class="list group-item">
         <div>
           <% if product.images? %>
-            <%= image_tag product.images.first.url(:thumb) %>
+            <%= image_tag product.images.first.url(:medium) %>
           <% end %>
           <div>
             <strong><%= t('products.index.title') %></strong>

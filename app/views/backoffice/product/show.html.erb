@@ -10,19 +10,12 @@
   </p>
 
   <div class = "container">
-    <% @product.images.each_with_index do |image, index| %>
+    <% @product.images.each do |image| %>
       <%= image_tag image.url(:large) %>
-      <%= link_to "Delete", product_image_path(@product, index), method: :delete, data: { confirm: "Are you sure you want to delete this image?" } %>
     <% end %>
   </div>
 
-  <div class = "container">
-    <h3>Add new images</h3>
-    <% form_for @product, url: product_images_path(@product), method: :post do |f| %>
-      <%= f.file_field :images, multiple: true %>
-      <%= f.submit "Add More Images" %>
-    <% end %>
-  </div>
+
   <%= link_to 'Back', admin_products_path, class:"btn btn-secondary"%>
 </div>
 

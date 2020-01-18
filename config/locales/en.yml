@@ -49,6 +49,13 @@ en:
       back: "Back"
       registration: "Registration"
       cart: "Cart"
+      edit: "Edit"
+      destroy: "Destroy"
+      n_c: "Add category"
+      n_p: "Add product"
+      admin_p: "Admin products"
+      admin_c: "Admin categories"
+      home: "To home page"
   category:
     new:
       title: 'Add new category'
