@@ -6,7 +6,7 @@ class CreateComments < ActiveRecord::Migration[6.0]
       t.string :plus
       t.string :minus
       t.integer :rating
-
+      t.integer :product_id
       t.timestamps
     end
   end

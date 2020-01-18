@@ -14,6 +14,7 @@
 
   <body>
   <div class = "container">
+    <a> <%= link_to "#{t('products.index.cart')}", cart_path(@current_cart) %></a>
     <a class="nav-link"><%= link_to "Укр", { locale: :uk }, class: "nav-item" %>
       <%= link_to "En", { locale: :en }, class: "nav-item" %>
     </a>

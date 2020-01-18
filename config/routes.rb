@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :orders
 
     resources :product do
+      resources :comments
       collection do
         get :min_price
         get :max_price

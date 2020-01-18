@@ -22,3 +22,48 @@
   <%= link_to "#{ t('products.index.back')}", product_index_path, class:"btn btn-secondary"%>
 </div>
 
+<% @product.comments.each do |comment| %>
+  <div class="container alert alert-lite contr">
+
+    <h4><%=User.find_by_id(comment.user_id).email%>: <%= comment.body %> <%= comment.plus %> <%= comment.minus %> <%= comment.rating %></h4>
+
+  </div>
+
+<% end %>
+
+
+<div class="container new_comment_form">
+  <div class="coments" id="form_new">
+    <div id="form_comment">
+      <% if current_user %>
+        <hr>
+
+        <h3>Add comment:</h3>
+        <%= form_with(model: [ @product, @product.comments.build ]) do |form| %>
+          <p>
+            <%= form.label :comment %><br>
+            <%= form.text_area :body, class:'form-control' %>
+          </p>
+          <p>
+            <%= form.label :plus %><br>
+            <%= form.text_area :plus, class:'form-control' %>
+          </p>
+          <p>
+            <%= form.label :minus %><br>
+            <%= form.text_area :minus, class:'form-control' %>
+          </p>
+          <p>
+            <%= form.label :rating %><br>
+            <%= form.text_area :rating, class:'form-control' %>
+          </p>
+          <p>
+            <%= form.submit class:'btn btn btn-danger btn-lg ' %>
+          </p>
+        <% end %>
+      <% else %>
+        <h4>Please login or create account to post comments.</h4>
+      <% end %>
+
+    </div>
+  </div>
+</div>

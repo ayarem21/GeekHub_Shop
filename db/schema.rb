@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2020_01_18_122555) do
     t.string "plus"
     t.string "minus"
     t.integer "rating"
+    t.integer "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
