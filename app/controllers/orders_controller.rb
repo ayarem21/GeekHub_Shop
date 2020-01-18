@@ -8,19 +8,20 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order = Order.new
+    @order = Order.new(params[:order])
   end
 
   def create
     @order = Order.new(order_params)
-    @current_cart.cart_items.each do |item|
-      @order.cart_items << item
-      item.cart_id = nil
-    end
+    @order.add_line_items_from_cart(@current_cart)
     if @order.save
+      @order.user_id = current_user.id
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       redirect_to root_path
+    else
+      flash[:alert] = "failed notice here.  View directions."
+      redirect_to @order
     end
   end
 
@@ -28,6 +29,6 @@ class OrdersController < ApplicationController
 
 
   def order_params
-    params.require(:order).permit(:name, :email, :address, :pay_method)
+    params.require(:order).permit(:name, :email, :address, :pay_method, :user_id)
   end
 end

@@ -16,7 +16,7 @@ uk:
          back: "Повернутися назад"
          registration: "Реєстрація"
          reg_ok: "Зареєструватись"
-
+         cart: "Корзина"
 
   category:
        new:

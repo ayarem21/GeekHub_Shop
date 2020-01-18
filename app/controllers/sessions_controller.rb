@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
   def destroy
     logout
     flash[:success] = 'See you!'
-    redirect_to "/sign_up"
+    redirect_to "/product"
   end
 end

@@ -48,6 +48,7 @@ en:
       create: "Create user"
       back: "Back"
       registration: "Registration"
+      cart: "Cart"
   category:
     new:
       title: 'Add new category'

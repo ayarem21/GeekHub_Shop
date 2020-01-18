@@ -1,12 +1,17 @@
 class CartsController < ApplicationController
-  def show
-    @cart = @current_cart
-  end
+  before_action :set_cart, except: %i[index]
+
+  def show; end
 
   def destroy
-    @cart = @current_cart
     @cart.destroy
     session[:cart_id] = nil
     redirect_to root_path
+  end
+
+  private
+
+  def set_cart
+    @cart = @current_cart
   end
 end
