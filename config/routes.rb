@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'product/index'
     get 'product/show'
 
+
     get 'carts/:id' => 'carts#show', as: 'cart'
     delete 'carts/:id' => 'carts#destroy'
 
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
     scope :admin do
       resources :category, controller: 'backoffice/category', as: 'admin_categories'
       resources :product, controller: 'backoffice/product', as: 'admin_products'
+      resources :orders, controller: 'backoffice/orders', as: 'admin_orders'
     end
 
 
