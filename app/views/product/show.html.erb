@@ -46,6 +46,8 @@
             <% 5.times do |i| %>
               <%= form.radio_button(:rating, i+1) %>
             <% end %>
+          </p>
+          <p>
             <%= form.label :comment %><br>
             <%= form.text_area :body, class:'form-control' %>
           </p>

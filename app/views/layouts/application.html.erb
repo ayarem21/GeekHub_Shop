@@ -7,18 +7,16 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <script src="https://kit.fontawesome.com/cea9c7549d.js" crossorigin="anonymous"></script>
     <%= render '/layouts/navbar' %>
 
   </head>
 
   <body>
   <div class = "container">
-    <a> <%= link_to "#{t('products.index.cart')}", cart_path(@current_cart) %></a>
     <a class="nav-link"><%= link_to "Укр", { locale: :uk }, class: "nav-item" %>
       <%= link_to "En", { locale: :en }, class: "nav-item" %>
     </a>
-    <br>
     <%= yield %>
   </div>
   </body>
