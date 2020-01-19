@@ -21,6 +21,8 @@ class ProductController < ApplicationController
     render action: :index
   end
 
+  def about; end
+
   private
 
   def set_product

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
     get 'product/index'
     get 'product/show'
-
+    get 'product/about'
 
     get 'carts/:id' => 'carts#show', as: 'cart'
     delete 'carts/:id' => 'carts#destroy'
