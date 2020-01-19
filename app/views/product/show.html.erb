@@ -1,15 +1,9 @@
-<div class="container alert alert-light">
+<div class="container">
   <h1 class="mt-4"><%= @product.title %></h1>
-  <div>
-    <%= Category.find(@product.category_id).title %>
-  </div>
-  <hr>
-
-  <p>
-    <%= @product.description %>
-  </p>
   <% if @product.images? %>
     <%= image_tag @product.images.first.url(:large) %>
+  <% else %>
+    <img src="https://i.imgur.com/GR5m05e.png" width="350px"  height="500px" />
   <% end %>
   <br>
   <br>
@@ -18,16 +12,49 @@
   <% end %>
   <br>
   <br>
+  <div>
+    <strong><%= t("products.index.category") %>: </strong><%= Category.find(@product.category_id).title %>
+  </div>
+  <hr>
+
+  <div>
+    <strong><%= t("products.index.description") %>: </strong><%= @product.description %>
+  </div>
+  <br>
   <%= link_to "#{ t('products.index.back')}", product_index_path, class:"btn btn-secondary"%>
 </div>
-
+<br>
 <% @product.comments.each do |comment| %>
-  <div class="container alert alert-lite contr">
+  <div class="border border-secondary rounded padd">
+    <div class = "border border-secondary rounded d-flex justify-content-between">
+      <div>
+        <%=User.find_by_id(comment.user_id).email%>
+      </div>
+      <div>
+        <%= comment.created_at %>
+      </div>
+    </div>
+    <div>
+      <% comment.rating.times do |i| %>
+        <i class="fas fa-star yellow"></i>
+      <% end %>
+      <% (5-comment.rating).times do |i| %>
+        <i class="far fa-star yellow"></i>
+      <% end %>
+    </div>
 
-    <h4><%=User.find_by_id(comment.user_id).email%>: <%= comment.body %> <%= comment.plus %> <%= comment.minus %> <%= comment.rating %></h4>
+    <div>
+      <%= comment.body %>
+    </div>
+    <div>
+      <strong><%= t('products.index.plus') %>:</strong><br>
+      <%= comment.plus %>
+    </div>
+    <strong><%= t('products.index.minus') %>:</strong><br>
+    <%= comment.minus %>
 
   </div>
-
+<br>
 <% end %>
 
 
@@ -40,31 +67,34 @@
           <br>
           <span class = "info"> </span>
         </div>
-        <h3>Add comment:</h3>
+        <h3><%= t('products.index.add_n_c') %></h3>
         <%= form_with(model: [ @product, @product.comments.build ]) do |form| %>
           <p>
             <% 5.times do |i| %>
-              <%= form.radio_button(:rating, i+1) %>
+            <div class="form-check form-check-inline">
+              <%= form.radio_button(:rating, i+1, class:"form-check-input") %>
+              <%= i+1 %>
+            </div>
             <% end %>
           </p>
           <p>
-            <%= form.label :comment %><br>
+            <%= form.label :"#{t('products.index.comment')}" %><br>
             <%= form.text_area :body, class:'form-control' %>
           </p>
           <p>
-            <%= form.label :plus %><br>
+            <%= form.label :"#{t('products.index.plus')}" %><br>
             <%= form.text_area :plus, class:'form-control' %>
           </p>
           <p>
-            <%= form.label :minus %><br>
+            <%= form.label :"#{t('products.index.minus')}" %><br>
             <%= form.text_area :minus, class:'form-control' %>
           </p>
           <p>
-            <%= form.submit class:'btn btn btn-danger btn-lg ' %>
+            <%= form.submit :"#{t('products.index.create_n_c')}", class:'btn btn btn-success btn-lg ' %>
           </p>
         <% end %>
       <% else %>
-        <h4>Please login or create account to post comments.</h4>
+        <h4><%= t('user.p_login') %></h4>
       <% end %>
 
     </div>

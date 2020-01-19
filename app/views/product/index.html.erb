@@ -1,22 +1,16 @@
-<style>
-  .first_child {
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
-  }
-</style>
 <div class="dropdown" align="right">
   <button class="btn btn-secondary dropdown-toggle bg-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort by
+    <%= t('products.index.sort_by') %>
   </button>
   <div class="dropdown-menu bg-success" aria-labelledby="dropdownMenuButton">
-    <%= link_to "Min Price", min_price_product_index_path, class:"dropdown-item"%>
-    <%= link_to "Max Price", max_price_product_index_path, class:"dropdown-item"%>
-    <%= link_to "Newest", new_sort_product_index_path, class:"dropdown-item"%>
+    <%= link_to "#{t('products.index.min')}", min_price_product_index_path, class:"dropdown-item"%>
+    <%= link_to "#{t('products.index.max')}", max_price_product_index_path, class:"dropdown-item"%>
+    <%= link_to "#{t('products.index.newest')}", new_sort_product_index_path, class:"dropdown-item"%>
   </div>
 </div>
 <div class="first_child">
   <% @products.each do |product| %>
-    <div class="container alert alert-dark">
+    <div class="container alert bg-light">
       <div class="list group-item">
         <div>
           <h3><strong><%= product.title %></strong></h3>

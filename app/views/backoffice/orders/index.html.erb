@@ -1,9 +1,10 @@
 <% @orders.each do |order| %>
   <hr>
-  <p>Name: <%= order.name %></p>
-  <p>Email: <%= order.email %></p>
-  <p>Cart Items: </p>
-  <p>Status: <%= order.status %></p>
+  <p><%= t('user.name') %>: <%= order.name %></p>
+  <p><%= t('user.email') %>: <%= order.email %></p>
+  <p><%= t('user.status') %>:: <%= order.status %></p>
+  <p><%= t('products.index.cart') %>: </p>
+
   <ul>
     <% order.cart_items.each do |item| %>
       <li><%= item.quantity %> x <%= item.product.title %></li>

@@ -57,8 +57,34 @@ en:
       admin_c: "Admin categories"
       home: "To home page"
       add: "Add to cart"
+      add_n_c: "Add new comment"
+      comment: "Comment"
+      plus: "Plus"
+      minus: "Minus"
+      create_n_c: "Create new comment"
+      admin_o: "Admin orders"
+      submit: "Submit"
+      sort_by: "Sort by"
+      min: "Minimal price"
+      max: "Maximum price"
+      newest: "Newest"
+      quantity: "Quantity"
+      total_price: "Total price"
+      total_price_all: "Total price for all"
+      proceed: "Proceed to checkout"
+      empty: "Empty cart"
+      name: "Name"
   category:
     new:
       title: 'Add new category'
     edit:
       title: 'Edit category'
+  user:
+    email: "Email"
+    password: "Password"
+    registration: "Registration"
+    name: "Name"
+    status: "Status"
+    address: "Address"
+    login: "Log in"
+    p_login: "Please login or create account to post comments."

@@ -1,20 +1,43 @@
-<h2>Cart show</h2>
-<ul>
-  <% @cart.cart_items.each do |cart_item| %>
-    <li>Item: <%= cart_item.product.title %>/ Price: <%= cart_item.product.price %>/ Quantity: <%= cart_item.quantity %>/ Total Price: <%= cart_item.total_price %>
-      <ul>
-        <li>
-          <%= link_to "Add one", cart_item_add_path(id: cart_item), method: :post %>
-          <%= link_to "Reduce one", cart_item_reduce_path(id: cart_item), method: :post %>
-        </li>
-        <li>
-          <%= link_to "Remove item", cart_item_path(cart_item), method: :delete %>
-        </li>
-      </ul>
+<h2><%= t('products.index.cart') %></h2>
 
-  <% end %>
-</ul>
-<h3>Sub total: <%= @cart.sub_total %></h3>
 
-<%= link_to "Proceed to checkout", new_order_path %><br>
-<%= link_to "Empty cart", cart_path(@current_cart),method: :delete, data: {confirm: "Are you sure?"} %>
+<p id="notice"><%= notice %></p>
+
+  <div class="container">
+    <table class="table">
+      <tr>
+        <td><strong><%= t('products.index.title') %></strong></td>
+        <td><strong><%= t('products.index.price') %></strong></td>
+        <td><strong><%= t('products.index.total_price') %></strong></td>
+        <td><strong><%= t('products.index.quantity') %></strong></td>
+      </tr>
+
+      <%# @cart.cart_items.each do |cart_item| %>
+<!--        <li><%#= t('products.index.title') %>: <%#= cart_item.product.title %>/ / <%#= t('products.index.quantity') %>: <%#= cart_item.quantity %>/  %>-->
+<!--          <ul>-->
+<!--            <li>-->
+
+
+<!--            </li>-->
+<!--            <li>-->
+              <%#= link_to "Remove item", cart_item_path(cart_item), method: :delete %>
+<!--            </li>-->
+<!--          </ul>-->
+
+          <% @cart.cart_items.each do |cart_item| %>
+        <tr>
+          <td><%= cart_item.product.title %></td>
+          <td><%= t('products.index.price') %>: <%= eval(sprintf("%8.2f",cart_item.product.price)) %>₴</td>
+          <td><%= eval(sprintf("%8.2f",cart_item.total_price))%>₴</td>
+          <td><%= link_to "+", cart_item_add_path(id: cart_item), method: :post %>
+            <%= cart_item.quantity %>
+            <%= link_to "-", cart_item_reduce_path(id: cart_item), method: :post %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= t('products.index.total_price_all') %>: <%= eval(sprintf("%8.2f",@cart.sub_total)) %>₴
+    <br>
+    <%= link_to "#{t('products.index.proceed')}", new_order_path %><br>
+    <%= link_to "#{t('products.index.empty')}", cart_path(@current_cart),method: :delete, data: {confirm: "Are you sure?"} %>
+
+  </div>

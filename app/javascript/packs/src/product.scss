@@ -1,0 +1,14 @@
+.yellow {
+  color: #F0E68C;
+}
+.first_child {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+}
+.white {
+  color: white;
+}
+
+.padd {
+  margin-right: 20px;
+}

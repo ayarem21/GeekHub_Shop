@@ -32,6 +32,6 @@
   <div class="field">
     <%= form.file_field :images, multiple: true %>
   </div>
-  <%= form.submit :Submit, class:"btn btn-dark"%>
+  <%= form.submit :"#{t('products.index.submit')}", class:"btn btn-dark"%>
   <br>
 <% end %>
