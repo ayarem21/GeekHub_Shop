@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :check_admin, only: %i[index show]
   def index
     @orders = Order.all
   end
@@ -16,6 +17,7 @@ class OrdersController < ApplicationController
     @order.add_line_items_from_cart(@current_cart)
     if @order.save
       @order.user_id = current_user.id
+      OrderMailer.with(order: @order).order_data.deliver!
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       redirect_to root_path

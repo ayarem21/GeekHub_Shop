@@ -36,6 +36,6 @@ class Backoffice::ImagesController < BackOfficeController
   end
 
   def images_params
-    params.require(:gallery).permit(images: [])
+    params.require(:product).permit(images: [])
   end
 end

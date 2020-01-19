@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h3>Hello, <%= @order.name %>!</h3>
+  <p>
+    You have successfully confirm order.<br>
+  </p>
+  <p>Order address: <%= @order.address %></p>
+
+  <ul>
+    <p>Products: </p>
+    <% @order.cart_items.each do |item| %>
+      <li><%= item.quantity %> x <%= item.product.title %></li>
+    <% end %>
+  </ul>
+</body>
+</html>

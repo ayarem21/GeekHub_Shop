@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   before_action :current_cart
   before_action :set_locale
 
+  def check_admin
+    redirect_to product_index_path unless current_user&.admin?
+  end
+
   private
 
   def set_locale

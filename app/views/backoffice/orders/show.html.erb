@@ -8,3 +8,25 @@
       <%# end %>
 <!--    </ul>-->
 <%# end %>
+
+<div class="container alert alert-light">
+  <h1 class="mt-4"><%= @order.name %></h1>
+  <%= @order.email %>
+  <hr>
+
+  <p>
+  <%= @order.status %>
+  </p>
+  <p>
+    <%= @order.comment %>
+  </p>
+
+  <div class = "container">
+    <% @order.cart_items.each do |item| %>
+      <li><%= item.quantity %> x <%= item.product.title %></li>
+    <% end %>
+  </div>
+
+
+  <%= link_to 'Back', admin_orders_path, class:"btn btn-secondary"%>
+</div>
