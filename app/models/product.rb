@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   has_many :category_products
   has_many :categories, through: :category_products
   has_many :cart_items, dependent: :destroy
@@ -6,7 +9,7 @@ class Product < ApplicationRecord
 
   has_rich_text :description
 
-  validates :title, uniqueness: true
+  #validates :title, uniqueness: true
 
   mount_uploaders :images, ImageUploader
 
