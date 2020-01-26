@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  attr_accessor :slug
+
   extend FriendlyId
   friendly_id :title, use: :slugged
 
