@@ -1,5 +1,12 @@
 <div class="container">
   <h1 class="mt-4"><%= @product.title %></h1>
+  <i class="far fa-comments"> <%= @product.comments.count %></i>
+  <% if @product.comments.present? %>
+    <i class="far fa-star" >
+      <%= eval(sprintf("%8.1f", @product.comments.sum(:rating).to_d / @product.comments.count.to_d)) %>
+    </i>
+  <% end %>
+  <br>
   <% if @product.images? %>
     <%= image_tag @product.images.first.url(:large) %>
   <% else %>

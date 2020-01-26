@@ -14,6 +14,18 @@
       <div class="list group-item">
         <div>
           <h3><strong><%= product.title %></strong></h3>
+
+          <% if product.comments.present? %>
+            <% (eval(sprintf("%8.1f",product.comments.sum(:rating)/product.comments.count)).to_i).times do |i| %>
+              <i class="fas fa-star yellow"></i>
+            <% end %>
+            <% ((5-eval(sprintf("%8.1f",product.comments.sum(:rating)/product.comments.count))).to_i).times do |i| %>
+              <i class="far fa-star yellow"></i>
+            <% end %>
+            <%= eval(sprintf("%8.1f",product.comments.sum(:rating).to_d/product.comments.count.to_d)) %>
+          <% end %>
+          <i class="far fa-comments"> <%= product.comments.count %></i>
+
           <% if product.images? %>
             <%= image_tag product.images.first.url(:medium) %>
           <% else %>

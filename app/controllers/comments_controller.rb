@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :find_film
+  before_action :find_product
 
   def index
     @product.comments = @product.comments.arrange(order: :created_at)
@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Product.find(params[:product_id])
+    @comment = Product.friendly.find(params[:product_id])
     @comment = @product.comments.create(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:body, :user_id, :minus, :plus, :rating)
   end
 
-  def find_film
-    @product = Product.find(params[:product_id])
+  def find_product
+    @product = Product.friendly.find(params[:product_id])
   end
 end
