@@ -26,6 +26,7 @@ Rails.application.routes.draw do
         get :min_price
         get :max_price
         get :new_sort
+        get :by_category
       end
       resources :images, controller: 'backoffice/images'
     end

@@ -74,6 +74,7 @@ en:
       proceed: "Proceed to checkout"
       empty: "Empty cart"
       name: "Name"
+      delivery: "Delivery"
   category:
     new:
       title: 'Add new category'

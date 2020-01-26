@@ -21,6 +21,11 @@ class ProductController < ApplicationController
     render action: :index
   end
 
+  def by_category
+    @products = Product.by_category.paginate(page: params[:page], per_page: 15)
+    render action: :index
+  end
+
   def about; end
 
   private

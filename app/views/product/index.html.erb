@@ -7,6 +7,7 @@
     <%= link_to "#{t('products.index.max')}", max_price_product_index_path, class:"dropdown-item"%>
     <%= link_to "#{t('products.index.newest')}", new_sort_product_index_path, class:"dropdown-item"%>
   </div>
+
 </div>
 <div class="first_child">
   <% @products.each do |product| %>
@@ -53,7 +54,6 @@
   <!-- -->
 
   <div class="second_child">
-
-    <%= will_paginate @products %>
+    <%= will_paginate @products, renderer: BootstrapPagination::Rails %>
   </div>
 </div>

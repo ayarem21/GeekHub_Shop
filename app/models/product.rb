@@ -16,4 +16,5 @@ class Product < ApplicationRecord
   scope :order_by_price_min, -> { order price: :asc }
   scope :order_by_price_max, -> { order price: :desc }
   scope :order_by_new, -> { order created_at: :desc }
+  scope :by_category, ->(category_id) { joins(:category).where(categories: {category_id: category_id}) }
 end
