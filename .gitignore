@@ -36,4 +36,5 @@ yarn-debug.log*
 .yarn-integrity
 
 /.idea/
-.idea/
+.idea//config/database.production.yml
+/config/secrets.production.yml
