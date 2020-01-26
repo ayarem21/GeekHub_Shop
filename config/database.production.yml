@@ -37,8 +37,9 @@ development:
 
   development:
     adapter: postgresql
-    encoding: unicode
+    host: 127.0.0.1
     database: db_shop
-    pool: 5
     username: deployer
     password:
+    encoding: unicode
+    pool: 5
